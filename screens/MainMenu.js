@@ -1,20 +1,13 @@
 import { StyleSheet, Text, View, Dimensions, Button,Image } from 'react-native'
 import React from 'react'
 import Circlelar from './Circlelar'
-// import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 const width_proportion = '50%';
 const height_proportion = '50%';
 
 const TotalAnswer = () => {
-    // const nav = useNavigation();
-    // const BackToHome = () => {
-    //     nav.navigate("Home");
-    // }
-    // const NewGame = () => {
-    //     nav.navigate("MenuGame");
-    // }
+
     return (
         <View >
             <View style={styles.section1}>
@@ -26,10 +19,24 @@ const TotalAnswer = () => {
                 />
                
             </View>
-            <View style={styles.section3}>
-                <Button color="#38C674" style={styles.btn} title="  ควิซพา(คลาย)เครียด  "></Button>
+            <View style={styles.section}>
+                <Button color="#FFDD40" style={styles.btn} title="เลือกหมวดหมู่คำถาม"></Button>
             </View>
-            
+            <View >
+                <Button color="#FF4155" style={styles.btn} title="กระดานคะแนน"></Button>
+            </View>
+            <View>
+                <Button color="#38C674" style={styles.btn} title="ผู้พัฒนา"></Button>
+            </View>
+            <View>
+                <Button color="#0053CE" style={styles.btn} title="ออกจากระบบ"></Button>
+            </View>
+            <View>
+            <Image source={require('../assets/profileicon.png')}
+                    style={{ width: 80, height: 80 }}
+                />
+            </View>
+           
         </View>
     );
 }

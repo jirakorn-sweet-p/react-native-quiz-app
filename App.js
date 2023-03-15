@@ -4,6 +4,8 @@ import TotalAnswer from './screens/TotalAnswer';
 import Welcome from './screens/Welcome';
 import LoginSelect from './screens/LoginSelect';
 import Pin from './screens/Pin';
+import MainMenu from './screens/MainMenu';
+
 import { ScrollView } from 'react-native-gesture-handler';
 
 
@@ -13,7 +15,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Welcome></Welcome>
+        <MainMenu></MainMenu>
       </ScrollView>
     
         

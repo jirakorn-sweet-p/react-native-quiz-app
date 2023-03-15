@@ -28,7 +28,7 @@ const Pin = () => {
                     autoCompleteType="tel"
                     keyboardType="phone-pad"
                     textContentType="telephoneNumber"
-                    onChangeText={phoneNumber => setPhoneNumber(phoneNumber)}
+                    //onChangeText={phoneNumber => setPhoneNumber(phoneNumber)}
                 />
             </View>
             <View style={styles.section2}>
