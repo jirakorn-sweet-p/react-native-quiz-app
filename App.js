@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Dimensions} from 'react-native';
 import TotalAnswer from './screens/TotalAnswer';
+import Welcome from './screens/Welcome';
+import LoginSelect from './screens/LoginSelect';
+import Pin from './screens/Pin';
+import { ScrollView } from 'react-native-gesture-handler';
+
 
 const { width, height } = Dimensions.get('window');
 
 export default function App() {
   return (
     <View style={styles.container}>
-    <TotalAnswer></TotalAnswer>
+      <ScrollView>
+        <Welcome></Welcome>
+      </ScrollView>
+    
         
     </View>
   );
