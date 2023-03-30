@@ -1,111 +1,212 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Dimensions, Button, Image } from 'react-native'
+import { StyleSheet, Text, View, Dimensions,Image } from 'react-native'
 import React from 'react'
-
-// import { useNavigation } from '@react-navigation/native';
+import { color } from 'react-native-reanimated'
 
 const { width, height } = Dimensions.get('window');
 const width_proportion = '50%';
 const height_proportion = '50%';
-
-const ScoreBoard = () => {
-    /*for (const [key, value] of Object.entries(data[''])) {
-        ex2.push(
-            <View style={styles.section2}>
-                <View style={styles.row}>
-                    <Image source={require('../assets/medal1.png')}
-                        style={{ width: 50, height: 50 }}
-                    />
-                    <Text style={styles.txt_1st}>waveza007</Text>
-                    <Text style={styles.txt_1st}>20</Text>
-                </View>
-            </View>
-        )
-    }*/
+const Setting = () => {
     return (
-        <View style={styles.main}>
+        <View style={styles.container}>
+
             <View style={styles.header}>
-                <Button color="#38C674" style={styles.btn} title="  BACK  "></Button>
+                <View style={styles.titleL}>
+                    <Text style={styles.txtL}>Score </Text>
+                </View>
+                <View style={styles.titleR}>
+                    <Text style={styles.txtR}> Board</Text>
+                </View>
             </View>
-            <View style={styles.section1}>
-                <Text style={styles.txt_header}>Score Board</Text>
-            </View>
-            <View style={styles.container}>
-                <View style={styles.section2}>
-                    <View style={styles.row}>
-                        <Image source={require('../assets/medal1.png')}
-                            style={{ width: 50, height: 50 }}
-                        />
-                        <Text style={styles.txt_1st}>waveza007</Text>
-                        <Text style={styles.txt_1st}>20</Text>
+
+            <View style={styles.container2}>
+                <View style={styles.container4}>
+
+                    {/* RANK 1 */}
+                    <View style={styles.container3}>
+
+                        <View style={styles.header_rank1_1}>
+                            <Image source={require('../assets/1st_rank.png')}
+                                style={styles.img}
+                            />
+                        </View>
+                        <View style={styles.header_rank1_2}>
+                            <Text style={styles.txt_rank1}>waveza007 </Text>
+                        </View>
+                        <View style={styles.header_rank1_3}>
+                            <Text style={styles.txt_rank1}>40</Text>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.section2}>
-                    <View style={styles.row}>
-                        <Image source={require('../assets/medal2.png')}
-                            style={{ width: 50, height: 50 }}
-                        />
-                        <Text style={styles.txt_2nd}>Sweet P</Text>
-                        <Text style={styles.txt_2nd}>39</Text>
+
+                    {/* RANK 2 */}
+                    <View style={styles.container3}>
+
+                        <View style={styles.header_rank1_1}>
+                        <Image source={require('../assets/2nd_rank.png')}
+                                style={styles.img}
+                            />
+                        </View>
+                        <View style={styles.header_rank1_2}>
+                            <Text style={styles.txt_rank2}>SweetP </Text>
+                        </View>
+                        <View style={styles.header_rank1_3}>
+                            <Text style={styles.txt_rank2}>39 </Text>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.section2}>
-                    <View style={styles.row}>
-                        <Image source={require('../assets/medal3.png')}
-                            style={{ width: 50, height: 50 }}
-                        />
-                        <Text style={styles.txt_3rd}>FlukeZa5521</Text>
-                        <Text style={styles.txt_3rd}>38</Text>
+
+                    {/* RANK 3 */}
+                    <View style={styles.container3}>
+
+                        <View style={styles.header_rank1_1}>
+                        <Image source={require('../assets/3rd_rank.png')}
+                                style={styles.img}
+                            />
+                        </View>
+                        <View style={styles.header_rank1_2}>
+                            <Text style={styles.txt_rank3}>FlukeZa5521 </Text>
+                        </View>
+                        <View style={styles.header_rank1_3}>
+                            <Text style={styles.txt_rank3}>38 </Text>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.section2}>
-                    <View style={styles.row}>
-                        <Image source={require('../assets/empty.png')}
-                            style={{ width: 50, height: 50 }}
-                        />
-                        <Text style={styles.txt_normal}>waveza007</Text>
-                        <Text style={styles.txt_normal}>20</Text>
+
+                    {/* NORMAL */}
+                    <View style={styles.container3}>
+
+                        <View style={styles.header_rank1_1}>
+                        </View>
+                        <View style={styles.header_rank1_2}>
+                            <Text style={styles.txt_rank4}>Username </Text>
+                        </View>
+                        <View style={styles.header_rank1_3}>
+                            <Text style={styles.txt_rank4}>0 </Text>
+                        </View>
                     </View>
                 </View>
             </View>
         </View>
-    );
+
+    )
 }
 
-export default ScoreBoard
+export default Setting
+
 const styles = StyleSheet.create({
-    Button: {
-        flexDirection: 'row',
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 50,
-        elevation: 3,
-    },
-    main: {
+    container: {
         flex: 1,
-        backgroundColor: '#fff',
+        width: '100%',
+        height: '100%',
+        justifyContentL: 'center',
         alignItems: 'center',
+        marginTop: 20,
         backgroundColor: '#73C3F9',
+    },
+    header: {
+        width: '70%',
+        marginTop: 20,
+        height: '11%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 5,
         },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
-
-        elevation: 11,
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
+        elevation: 12,
     },
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
+    header_rank1_1: {
+        marginLeft: 17,
+        width: '20%',
+        height: '100%',
+        justifyContent: 'center',
         alignItems: 'center',
-        height: height - 300,
+        //backgroundColor: 'red',
+    },
+    header_rank1_2: {
+        width: '45%',
+        height: '100%',
+        marginRight:20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        //backgroundColor: 'yellow',
+    },
+    header_rank1_3: {
+        width: '25%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        //backgroundColor: 'blue',
+    },
+    titleL: {
+        width: '50%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // marginLeft:'10%'
+    },
+    titleR: {
+        width: '50%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // marginRight:'10%',
+    },
+    txtL: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
+        textAlign: 'right',
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        backgroundColor: '#FBCE30',
+        alignSelf: 'flex-end',
+        fontSize: 36,
+        fontWeight: '900',
+        color: 'white',
+        textShadowColor: "#000",
+        textShadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        textShadowRadius: 1,
+
+
+    },
+    txtR: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingRight: 10,
+        textAlign: 'left',
+        width: '100%',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+        backgroundColor: 'white',
+        alignSelf: 'flex-start',
+        fontSize: 36,
+        color: '#FBCE30',
+        fontWeight: '900',
+        textShadowColor: "#000",
+        textShadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        textShadowRadius: 1,
+
+    },
+    container2: {
+        flex: 1,
+        //alignItems: 'center',
+        height: height - 90,
+        width: '90%',
         marginLeft: 20,
         marginRight: 20,
-        marginTop: -25,
-        marginBottom: 100,
+        marginTop: 20,
+        marginBottom: 20,
         borderRadius: 10,
+        flexDirection: 'row',
         backgroundColor: 'white',
         shadowColor: "#000",
         shadowOffset: {
@@ -116,88 +217,90 @@ const styles = StyleSheet.create({
         shadowRadius: 6.68,
 
         elevation: 11,
-    }, header: {
-        marginTop: 50,
-        right: 115,
-        width: width - 100,
-        height: height / 10,
-        alignItems: 'center'
-    },
-    section1: {
-        flex: 1,
-        backgroundColor: '#FBCE30',
-        width: width - 50,
-        height: height / 8,
-        alignItems: 'center',
-        borderRadius: 10,
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 5,
-        marginBottom: 50,
-        borderRadius: 10,
-        hadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 5,
-        },
-        shadowOpacity: 0.36,
-        shadowRadius: 6.68,
-
-        elevation: 11,
-    },
-    section2: {
-        backgroundColor: '#fff',
-        width: width - 50,
-        height: height / 10,
-        marginTop: 10,
-    },
-    row: {
-        marginLeft: 15,
-        marginTop: 10,
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-    column: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '50%',
-    },
-    txt_header: {
-        fontSize: 30,
-        fontWeight: '800',
-        margin: 20,
-        color: '#fff'
-    },
-    txt_1st: {
-        fontSize: 18,
-        fontWeight: '500',
-        color: '#FFE600',
-        marginTop: 10,
-        marginLeft: 25,
-    },
-    txt_2nd: {
-        fontSize: 18,
-        fontWeight: '500',
-        color: '#9E9E9E',
-        marginTop: 10,
-        marginLeft: 25,
-    },
-    txt_3rd: {
-        fontSize: 18,
-        fontWeight: '500',
-        color: '#CE7430',
-        marginTop: 10,
-        marginLeft: 25,
-    },
-    txt_normal: {
-        fontSize: 18,
-        fontWeight: '500',
-        color: '#000',
-        marginTop: 10,
-        marginLeft: 25,
-    },
-    btn: {
-        borderRadius: 10,
     }
-});
+    ,
+    container3: {
+        marginTop: 10,
+        height: '10%',
+        width: '100%',
+        flexDirection: 'row',
+        //backgroundColor: 'purple',
+    }
+    ,
+    container4: {
+        flex: 1,
+        height: '100%',
+        width: '100%',
+        flexDirection: 'column',
+        marginTop: 7,
+        marginBottom: 20,
+        borderRadius: 10,
+        //backgroundColor: 'green',
+    },
+    img: {
+        //marginTop: 50,
+        width: 50,
+        height: 50,
+    },
+    txt_rank1: {
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        alignSelf: 'flex-end',
+        fontSize: 32,
+        textAlign:'left',
+        fontWeight: '900',
+        color: '#FFC700',
+        textShadowColor: "#000",
+        textShadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        textShadowRadius: 1,
+    },
+    txt_rank2: {
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        alignSelf: 'flex-end',
+        fontSize: 28,
+        textAlign:'left',
+        fontWeight: '900',
+        color: 'silver',
+        textShadowColor: "#000",
+        textShadowOffset: {
+            width: 1,
+            height: 2,
+        },
+        textShadowRadius: 1,
+    }
+    ,
+    txt_rank3: {
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        alignSelf: 'flex-end',
+        fontSize: 26,
+        textAlign:'left',
+        fontWeight: '900',
+        color: '#CE7430',
+        // textShadowColor: "#000",
+        // textShadowOffset: {
+        //     width: 1,
+        //     height: 2,
+        // },
+        // textShadowRadius: 1,
+    }
+    ,
+    txt_rank4: {
+        width: '100%',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        alignSelf: 'flex-end',
+        fontSize: 24,
+        textAlign:'left',
+        fontWeight: '900',
+        color: '#9E9E9E',
+
+    }
+})

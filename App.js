@@ -14,13 +14,12 @@ const { width, height } = Dimensions.get('window');
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <ScrollView>
+
         <ScoreBoard></ScoreBoard>
-      </ScrollView>
+        //<TotalAnswer></TotalAnswer>
+
     
-        
-    </View>
+
   );
 }
 
