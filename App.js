@@ -6,6 +6,7 @@ import LoginSelect from './screens/LoginSelect';
 import Pin from './screens/Pin';
 import MainMenu from './screens/MainMenu';
 import ScoreBoard from './screens/ScoreBoard';
+import Profile from './screens/Profile';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -15,8 +16,9 @@ const { width, height } = Dimensions.get('window');
 export default function App() {
   return (
 
-        <ScoreBoard></ScoreBoard>
+        //<ScoreBoard></ScoreBoard>
         //<TotalAnswer></TotalAnswer>
+        <Profile></Profile>
 
     
 
