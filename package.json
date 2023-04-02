@@ -22,8 +22,12 @@
     "expo-web-browser": "~12.1.1",
     "firebase": "^9.19.1",
     "react": "18.2.0",
+<<<<<<< HEAD
     "react-dom": "18.2.0",
     "react-native": "0.71.3",
+=======
+    "react-native": "0.71.4",
+>>>>>>> e2d862d110f4c17e09e169d158ab847525f7b2d2
     "react-native-gesture-handler": "~2.9.0",
     "react-native-reanimated": "~2.14.4",
     "react-native-redash": "^18.1.0",
@@ -31,7 +35,12 @@
     "react-native-screens": "~3.20.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.10",
+<<<<<<< HEAD
     "yarn": "^1.22.19"
+=======
+    "react-dom": "18.2.0",
+    "@expo/webpack-config": "^18.0.1"
+>>>>>>> e2d862d110f4c17e09e169d158ab847525f7b2d2
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

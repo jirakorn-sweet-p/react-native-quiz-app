@@ -2,6 +2,12 @@ import { StyleSheet, Text, View, Dimensions, Image } from 'react-native'
 import React from 'react'
 import { color } from 'react-native-reanimated'
 
+<<<<<<< HEAD
+=======
+const { width, height } = Dimensions.get('window');
+const width_proportion = '50%';
+const height_proportion = '50%';
+>>>>>>> e2d862d110f4c17e09e169d158ab847525f7b2d2
 const Developer = () => {
     return (
         <View style={styles.container}>
@@ -97,7 +103,11 @@ const styles = StyleSheet.create({
     container1: {
         flex: 1,
         //alignItems: 'center',
+<<<<<<< HEAD
         height: '100%',
+=======
+        height: height - 90,
+>>>>>>> e2d862d110f4c17e09e169d158ab847525f7b2d2
         width: '90%',
         marginLeft: 20,
         marginRight: 20,
