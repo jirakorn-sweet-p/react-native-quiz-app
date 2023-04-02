@@ -5,7 +5,7 @@ import { color } from 'react-native-reanimated'
 const { width, height } = Dimensions.get('window');
 const width_proportion = '50%';
 const height_proportion = '50%';
-const Setting = () => {
+const ScoreBoard = () => {
     return (
         <View style={styles.container}>
 
@@ -88,7 +88,7 @@ const Setting = () => {
     )
 }
 
-export default Setting
+export default ScoreBoard
 
 const styles = StyleSheet.create({
     container: {

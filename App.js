@@ -7,6 +7,7 @@ import Pin from './screens/Pin';
 import MainMenu from './screens/MainMenu';
 import ScoreBoard from './screens/ScoreBoard';
 import Profile from './screens/Profile';
+import Developer from './screens/Developer';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -18,7 +19,7 @@ export default function App() {
 
         //<ScoreBoard></ScoreBoard>
         //<TotalAnswer></TotalAnswer>
-        <Profile></Profile>
+        <Developer></Developer>
 
     
 
