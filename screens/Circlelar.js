@@ -14,6 +14,7 @@ const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const Circlelar = (props) => {
     const percentage = 1 - props.percentage
+    const txt = 1 - props.txt
     const circleProgress = useSharedValue(1);
     
     useEffect(() => {
@@ -32,10 +33,10 @@ const Circlelar = (props) => {
 
         <View style={styles.container}>
         <ReText style={[styles.ProgressText,]} text={ProgressText}></ReText>
-        <Text style={[styles.ProgressText2,]}>Correct</Text>
+        <Text style={[styles.ProgressText2,]}>Question</Text>
             <Svg width={width} height={height} style={{ position:'absolute'}}>
                 <Circle
-                    cx={width * 0.5-20}
+                    cx={width * 0.5}
                     cy={height * 0.5}
                     r={R}
                     fill={BACKGROUND_COLOR}
@@ -43,10 +44,10 @@ const Circlelar = (props) => {
                     strokeWidth={15}
                 />
                 <AnimatedCircle
-                    cx={width * 0.5-20}
+                    cx={width * 0.5}
                     cy={height * 0.5}
                     r={R}
-                    transform={{ rotation: -90, originX: width * 0.5-20, originY: height * 0.5 }}
+                    transform={{ rotation: -90, originX: width * 0.5, originY: height * 0.5 }}
                     fillOpacity={0}
                     fill={BACKGROUND_COLOR}
                     stroke={STROKE_COLOR}

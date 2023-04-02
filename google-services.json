@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "801874282318",
+    "project_id": "react-1e4f8",
+    "storage_bucket": "react-1e4f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801874282318:android:5d0c2a419ae9cf0b97801f",
+        "android_client_info": {
+          "package_name": "com.si.tingle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801874282318-i5ifn45fbi3f450mao24sm479iuj8imb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.si.tingle",
+            "certificate_hash": "7147e11dbb6c8b977e05a2793d9e6554ab0f0645"
+          }
+        },
+        {
+          "client_id": "801874282318-ss0mv9g8q870pkivo4qq3vjjhclchcc4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.si.tingle",
+            "certificate_hash": "3defc3dd86e7737fef7b2078d586e7d8f0d6dbfe"
+          }
+        },
+        {
+          "client_id": "801874282318-bp5uj3fqg8tevqccq2nekogltjkgm0jm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsOcsT3cfk7OEnkZX-BriFf64ZfOC_eNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801874282318-1mjfb5msa63593ie45iiait71la5bp1g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,51 +1,79 @@
-import { StyleSheet, Text, View, Dimensions, Button, Image } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, Button, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import Circlelar from './Circlelar'
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigation } from '@react-navigation/core'
 
-const { width, height } = Dimensions.get('window');
-const width_proportion = '50%';
-const height_proportion = '50%';
 
-const TotalAnswer = () => {
-
+const MainMenu = () => {
+    const navigation = useNavigation();
+    const auth = getAuth();
+    const RANKING =()=>{
+        navigation.navigate('Ranking')
+    }
+    const DEV =()=>{
+        navigation.navigate('Developer')
+    }
+    const LOGIN =()=>{
+        signOut(auth).then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+        navigation.navigate('LoginScreen')
+    }
+    const PROFILE =()=>{
+        navigation.navigate('Profile')
+    }
+    const CATEGORY =()=>{
+        navigation.navigate('TypeQuestion')
+    }
     return (
-        <View >
-            <View style={styles.section1}>
+        <View style={styles.container}>
 
-            </View>
             <View style={styles.section2}>
                 <Image source={require('../assets/quizicon.png')}
                     style={{ width: 200, height: 200 }}
                 />
+            </View>
 
-            </View>
-            <View style={styles.title}>
-                <Button color="#FFDD40" style={styles.btn} title="เลือกหมวดหมู่คำถาม"></Button>
-            </View>
-            <View style={styles.title}>
-                <Button color="#FF4155" style={styles.btn} title="กระดานคะแนน"></Button>
-            </View>
-            <View style={styles.title}>
-                <Button color="#38C674" style={styles.btn} title="ผู้พัฒนา"></Button>
-            </View>
-            <View style={styles.title}>
-                <Button color="#0053CE" style={styles.btn} title="ออกจากระบบ"></Button>
-            </View>
-            <View style={styles.title2}>
+            <TouchableOpacity style={styles.title} onPress={CATEGORY}>
+                <Text style={[styles.btn,styles.t1]} >เลือกหมวดหมู่คำถาม</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.title} onPress={RANKING} >
+                <Text  style={[styles.btn,styles.t2]} >กระดานคะแนน</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.title} onPress={DEV}>
+                <Text style={[styles.btn,styles.t3]} >ผู้พัฒนา</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.title} onPress={LOGIN}>
+                <Text style={[styles.btn,styles.t4]} >ออกจากระบบ</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.title2} onPress={PROFILE}>
                 <Image source={require('../assets/profileicon.png')}
-                    style={{ width: 80, height: 80 }}
+                    style={{ width: 70, height: 70 }}
                 />
                 <Text style={styles.txt2}>บัญชีผู้ใช้</Text>
-
-            </View>
+            </TouchableOpacity>
 
         </View>
     );
 }
 
-export default TotalAnswer
+export default MainMenu
 
 const styles = StyleSheet.create({
+    container: {
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        backgroundColor: '#73C3F9',
+        alignItems: 'center',
+    },
     Button: {
         flexDirection: 'row',
         height: 50,
@@ -60,16 +88,16 @@ const styles = StyleSheet.create({
         height: 200,
     },
     section2: {
-        width: width - 40,
-        height: height / 4,
+        width: '100%',
+        height: '30%',
         alignItems: 'center',
     },
     section3: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        width: width - 40,
-        height: height / 4,
+        width: '100%',
+        height: '25%',
         alignItems: 'center',
     },
     txt1: {
@@ -81,7 +109,17 @@ const styles = StyleSheet.create({
     txt2: {
         fontSize: 15,
         fontWeight: '500',
-        color: '#474747'
+        color: '#474747',
+        height: '50%',
+        width: '40%',
+        alignSelf: 'center',
+        textAlignVertical: 'center',
+        marginLeft: -20,
+        zIndex: -1,
+        paddingLeft: 40,
+        borderRadius: 10,
+        justifyContent: 'center',
+        backgroundColor: 'white'
     },
     txt3: {
         fontSize: 32,
@@ -90,17 +128,46 @@ const styles = StyleSheet.create({
         color: '#565656'
     },
     btn: {
-        borderRadius: 10,
+        width:'100%',
+        height:'70%',
+        padding:10,
+        fontSize:18,
+        fontWeight:'600',
+        textAlign:'center',
+        alignSelf:'center',
+        backgroundColor:'white',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: 0.39,
+        shadowRadius: 8.30,
+        elevation: 13,
+        borderRadius: 8,
+        zIndex:99,
     },
     title: {
         textAlign: 'center',
-        marginVertical: 8,
+        width: '50%',
+        justifyContent:'center',
+        alignItems:'center',
+        alignContent:'center',
+        // borderRadius: 20,
+        height: "10%",
     },
     title2: {
         textAlign: 'center',
         marginVertical: 10,
-        width: width - 40,
-        height: height / 4,
+        marginLeft: -10,
+        width: '100%',
+        justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center',
+        textAlign: 'center',
     },
+    t1: { backgroundColor: '#38C674', color: 'white' },
+    t2: { backgroundColor: '#0053CE', color: 'white' },
+    t3: { backgroundColor: '#FFDD40', color: 'white' },
+    t4: { backgroundColor: '#FF4155', color: 'white' },
 });
