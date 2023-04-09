@@ -15,19 +15,31 @@ const TotalAnswer = () => {
     const [user, setUser] = useState(FIREBASE_AUTH.currentUser);
     console.log(temp);
     console.log(user['email']);
-    const writeDB = (s, u, e) => {
-        console.log("================writeDB=================");
 
+    const writeDB = async (s, u, e, key,tel,age,avatar) => {
+        console.log("================writeDB=================");
+        console.log(key);
         // const username = "username@"+Number(Object.keys(all_user).length+1);
         const DATA = {
             username: u,
             email: e,
-            score: s
+            score: s,
+            tel: tel,
+            age: age,
+            avatar:avatar
         };
         console.log("data : " + DATA);
+        console.log(DATA['score']);
         const updates = {};
-        updates['/User/' + u + '/'] = DATA;
-        return update(ref(database), updates);
+        updates['/User/' + key + '/'] = DATA;
+        try {
+            await update(ref(database), updates);
+            // Data saved successfully!
+            console.log("Data saved successfully!");
+        } catch (error) {
+            // The write failed...
+            console.log(error);
+        };
     }
 
     onValue(starCountRef, (snapshot) => {
@@ -35,11 +47,12 @@ const TotalAnswer = () => {
             const data = snapshot.val();
             for (const [key, value] of Object.entries(data)) {
                 console.log("=======================FOR=========================");
-                // console.log(`${key} ${value}`);
+                console.log(`${key} ${value}`);
                 // console.log(value['email']);
                 if (value['email'] == user['email']) {
                     console.log("MATCH");
                     console.log(value['score']);
+                    console.log(temp['params'] + " =====");
                     console.log(value['score']['type@' + temp['params']['type']]);
                     // if(temp['params']['type'])
                     let i = value['score'];
@@ -47,14 +60,27 @@ const TotalAnswer = () => {
                         console.log(`${key2} ${value2}`);
                         if (Number(key2.slice(5)) == Number(temp['params']['type'])) {
                             console.log("SAMMM");
-                            i['type@' + key2.slice(5)] = Number(temp['params']['p']*10);
+                            if (i['type@' + key2.slice(5)] < Number(temp['params']['point'] * 10)) {
+                                i['type@' + key2.slice(5)] = Number(temp['params']['point'] * 10);
+                            }
+
                         }
 
                     }
                     console.log(value['email']);//getEMAIL
                     console.log(value['username']);//getUSERNAME
                     console.log(i); //getSCORE
-                    writeDB(i, value['username'], value['email']);
+                    let age = 0;
+                    let tel = "phone ??";
+                    if(value.hasOwnProperty('tel')){
+                        console.log("set Default phone");
+                        tel = value['tel'];
+                    }
+                    if(value.hasOwnProperty('age')){
+                        console.log("set Default age");
+                        age = value['age'];
+                    }
+                    writeDB(i, value['username'], value['email'], key.toString(),tel,age,value['avatar']);
                     console.log("================ END =================");
                 } else {
                     console.log(value['email'] + " != " + user['email']);

@@ -74,6 +74,7 @@ const LoginScreen = () => {
         const DATA = {
             username:username,
             email:email,
+            avatar:1,
             score:score
         };
         console.log("data : "+DATA);

@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { color, log } from 'react-native-reanimated'
 import { getDatabase, onValue, ref, set, update } from "firebase/database";
+import image from './image';
 
 
 const Ranking = () => {
@@ -13,6 +14,7 @@ const Ranking = () => {
     const ranking = {};
     const [all, setAll] = useState();
     const [sortable, setSortable] = useState();
+    const [imagSrc, setImageSrc] = useState();
 
     const RANK1 = [];
     const RANK2 = [];
@@ -62,88 +64,119 @@ const Ranking = () => {
                     sum = all_user[value]['score']['type@1'] + all_user[value]['score']['type@2'] + all_user[value]['score']['type@3'] + all_user[value]['score']['type@4']
                     // console.log(sum);
                     // console.log(typeof s);
-                    if (key == 0) {
-                        console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙0");
-                        RANK1.push(
-                            <View style={styles.container3}>
+                    let count = 1;
+                    // console.log(all_user[value]);
+                    for (im in image) {
+                        // console.log(all_user[value]['avatar']);
+                        // console.log(count);
+                        if (count == all_user[value]['avatar']) {
+                            setImageSrc(image[im]);
+                            if (key == 0) {
+                                console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙0");
+                                RANK1.push(
+                                    <View style={styles.container3}>
 
-                                <View style={styles.header_rank1_1}>
-                                    <Image source={require('../assets/1st_rank.png')}
-                                        style={styles.img}
-                                    />
-                                </View>
-                                <View style={styles.header_rank1_2}>
-                                    <Text style={styles.txt_rank1}>{all_user[value]['username']} </Text>
-                                </View>
-                                <View style={styles.header_rank1_3}>
-                                    <Text style={styles.txt_rank1}>{sum}</Text>
-                                </View>
-                            </View>
-                        );
-                    } else if (key == 1) {
-                        console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙1");
-                        RANK2.push(
-                            <View style={styles.container3}>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={require('../assets/1st_rank.png')}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={image[im]}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_2}>
+                                            <Text style={styles.txt_rank1}>{all_user[value]['username']} </Text>
+                                        </View>
+                                        <View style={styles.header_rank1_3}>
+                                            <Text style={styles.txt_rank1}>{sum}</Text>
+                                        </View>
+                                    </View>
+                                );
+                            } else if (key == 1) {
+                                console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙1");
+                                RANK2.push(
+                                    <View style={styles.container3}>
 
-                                <View style={styles.header_rank1_1}>
-                                    <Image source={require('../assets/2nd_rank.png')}
-                                        style={styles.img}
-                                    />
-                                </View>
-                                <View style={styles.header_rank1_2}>
-                                    <Text style={styles.txt_rank2}>{all_user[value]['username']} </Text>
-                                </View>
-                                <View style={styles.header_rank1_3}>
-                                    <Text style={styles.txt_rank2}>{sum} </Text>
-                                </View>
-                            </View>
-                        );
-                    } else if (key == 2) {
-                        console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙2");
-                        RANK3.push(
-                            <View style={styles.container3}>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={require('../assets/2nd_rank.png')}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={image[im]}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_2}>
+                                            <Text style={styles.txt_rank2}>{all_user[value]['username']} </Text>
+                                        </View>
+                                        <View style={styles.header_rank1_3}>
+                                            <Text style={styles.txt_rank2}>{sum} </Text>
+                                        </View>
+                                    </View>
+                                );
+                            } else if (key == 2) {
+                                console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙2");
+                                RANK3.push(
+                                    <View style={styles.container3}>
 
-                                <View style={styles.header_rank1_1}>
-                                    <Image source={require('../assets/3rd_rank.png')}
-                                        style={styles.img}
-                                    />
-                                </View>
-                                <View style={styles.header_rank1_2}>
-                                    <Text style={styles.txt_rank3}>{all_user[value]['username']} </Text>
-                                </View>
-                                <View style={styles.header_rank1_3}>
-                                    <Text style={styles.txt_rank3}>{sum} </Text>
-                                </View>
-                            </View>
-                        );
-                    } else {
-                        console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙else");
-                        RANK4.push(
-                            <View style={styles.container3}>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={require('../assets/3rd_rank.png')}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={image[im]}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_2}>
+                                            <Text style={styles.txt_rank3}>{all_user[value]['username']} </Text>
+                                        </View>
+                                        <View style={styles.header_rank1_3}>
+                                            <Text style={styles.txt_rank3}>{sum} </Text>
+                                        </View>
+                                    </View>
+                                );
+                            } else {
+                                console.log("🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙🥙else");
+                                RANK4.push(
+                                    <View style={styles.container3}>
+                                        <View style={styles.header_rank1_1}>
+                                        </View>
+                                        <View style={styles.header_rank1_1}>
+                                            <Image source={image[im]}
+                                                style={styles.img}
+                                            />
+                                        </View>
+                                        <View style={styles.header_rank1_2}>
+                                            <Text style={styles.txt_rank4}>{all_user[value]['username']} </Text>
+                                        </View>
+                                        <View style={styles.header_rank1_3}>
+                                            <Text style={styles.txt_rank4}>{sum} </Text>
+                                        </View>
+                                    </View>
+                                );
+                            }
+                        }
+                        count = count + 1;
 
-                                <View style={styles.header_rank1_1}>
-                                </View>
-                                <View style={styles.header_rank1_2}>
-                                    <Text style={styles.txt_rank4}>{all_user[value]['username']} </Text>
-                                </View>
-                                <View style={styles.header_rank1_3}>
-                                    <Text style={styles.txt_rank4}>{sum} </Text>
-                                </View>
-                            </View>
-                        );
                     }
+
                 }
                 // console.log(all);
-            console.log(RANK4.toString() + "==");
-            setEx1(RANK1);
-            setEx2(RANK2);
-            setEx3(RANK3);
-            setEx4(RANK4);
-            }else{
+                console.log(RANK4.toString() + "==");
+                setEx1(RANK1);
+                setEx2(RANK2);
+                setEx3(RANK3);
+                setEx4(RANK4);
+            } else {
                 console.log("[[[[[[[[");
             }
 
-            
+
         }, {
             onlyOnce: true
         });
@@ -166,7 +199,7 @@ const Ranking = () => {
             </View>
 
             <View style={styles.container2}>
-                <View style={styles.container4}>
+                <ScrollView style={styles.container4}>
 
                     {/* RANK 1 */}
                     {ex1}
@@ -178,7 +211,7 @@ const Ranking = () => {
                     {ex4}
 
 
-                </View>
+                </ScrollView>
             </View>
         </View>
 
@@ -214,24 +247,22 @@ const styles = StyleSheet.create({
         elevation: 12,
     },
     header_rank1_1: {
-        marginLeft: 10,
         width: '15%',
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+        direction: 'row',
         // backgroundColor: 'red',
     },
     header_rank1_2: {
-        width: '56%',
+        width: '50%',
         height: '100%',
-        marginLeft: '2%',
-        marginRight: 20,
         justifyContent: 'center',
         alignItems: 'center',
         // backgroundColor: 'yellow',
     },
     header_rank1_3: {
-        width: '17%',
+        width: '20%',
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -318,7 +349,7 @@ const styles = StyleSheet.create({
     }
     ,
     container3: {
-        marginTop: 10,
+        marginTop: 20,
         height: '10%',
         width: '100%',
         flexDirection: 'row',
@@ -345,7 +376,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         alignSelf: 'flex-end',
-        fontSize: 32,
+        fontSize: 28,
         textAlign: 'left',
         fontWeight: '900',
         color: '#FFC700',
