@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     }
     ,
     container3: {
-        marginTop: 20,
+        marginTop: 10,
         height: '10%',
         width: '100%',
         flexDirection: 'row',
@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         alignSelf: 'flex-end',
-        fontSize: 28,
+        fontSize: 26,
         textAlign: 'left',
         fontWeight: '900',
         color: 'silver',
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
         alignSelf: 'flex-end',
-        fontSize: 26,
+        fontSize: 24,
         textAlign: 'left',
         fontWeight: '900',
         color: '#CE7430',
